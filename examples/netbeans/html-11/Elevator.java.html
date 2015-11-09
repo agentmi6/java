@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Elevator.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.ST1 {color: #009900}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+<!-- Add code before closing head tag -->
+<link rel="stylesheet" href="res/code.css" type="text/css" />
+</head>
+<body>
+<table width="100%"><tr><td align="center">/home/oracle/labs/examples/les11/Lesson11Examples/src/Elevator.java</td></tr></table>
+<pre>
+ 1 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">Elevator</span> {
+ 2   <span class="literal">private</span> <span class="literal">boolean</span> <span class="ST1">doorOpen</span> = <span class="literal">false</span>;
+ 3   <span class="literal">private</span> <span class="literal">int</span> <span class="ST1">currentFloor</span> = 1;
+ 4   <span class="literal">private</span> <span class="literal">final</span> <span class="literal">int</span> <span class="ST1">TOP_FLOOR</span> = 5;
+ 5   <span class="literal">private</span> <span class="literal">final</span> <span class="literal">int</span> <span class="ST1">BOTTOM_FLOOR</span> = 1;
+ 6 
+ 7   <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">openDoor</span>() {
+ 8     <span class="ST1">doorOpen</span> = <span class="literal">true</span>;
+ 9   }
+10 
+11   <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">closeDoor</span>() {
+12     <span class="ST1">doorOpen</span> = <span class="literal">false</span>;
+13   }
+14 
+15   <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">goUp</span>() {
+16     <span class="literal">if</span> (!<span class="ST1">doorOpen</span>) {
+17       <span class="literal">if</span> (<span class="ST1">currentFloor</span> &lt; <span class="ST1">TOP_FLOOR</span>) {
+18         <span class="ST1">currentFloor</span>++;
+19         System.<span class="ST2">out</span>.println(<span class="ST1">currentFloor</span>);
+20       } <span class="literal">else</span> {
+21         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Already on top floor.</span><span class="string">&quot;</span>);
+22       }
+23     } <span class="literal">else</span> {
+24       System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Doors still open!</span><span class="string">&quot;</span>);
+25     }
+26   }
+27 
+28   <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">goDown</span>() {
+29     <span class="literal">if</span> (!<span class="ST1">doorOpen</span>) {
+30       <span class="literal">if</span> (<span class="ST1">currentFloor</span> &gt; <span class="ST1">BOTTOM_FLOOR</span>) {
+31         <span class="ST1">currentFloor</span>--;
+32         System.<span class="ST2">out</span>.println(<span class="ST1">currentFloor</span>);
+33       } <span class="literal">else</span> {
+34         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Already on bottom floor.</span><span class="string">&quot;</span>);
+35       }
+36     } <span class="literal">else</span> {
+37       System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Doors still open!</span><span class="string">&quot;</span>);
+38     }
+39   }
+40 
+41   <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setFloor</span>(<span class="literal">int</span> desiredFloor) {
+42     <span class="literal">if</span> ((desiredFloor &gt;= <span class="ST1">BOTTOM_FLOOR</span>) &amp;&amp; (desiredFloor &lt;= <span class="ST1">TOP_FLOOR</span>)) {
+43       <span class="literal">while</span> (<span class="ST1">currentFloor</span> != desiredFloor) {
+44         <span class="literal">if</span> (<span class="ST1">currentFloor</span> &lt; desiredFloor) {
+45           goUp();
+46         } <span class="literal">else</span> {
+47           goDown();
+48         }
+49       }
+50     } <span class="literal">else</span> {
+51       System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Invalid Floor</span><span class="string">&quot;</span>);
+52     }
+53   }
+54 
+55   <span class="literal">public</span> <span class="literal">int</span> <span class="ST0">getFloor</span>() {
+56     <span class="literal">return</span> <span class="ST1">currentFloor</span>;
+57   }
+58 
+59   <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST0">getDoorStatus</span>() {
+60     <span class="literal">return</span> <span class="ST1">doorOpen</span>;
+61   }
+62 }
+63 
+</pre>
+<!-- Add code before closing body tag -->
+<script src="res/jquery.js" type="text/javascript"></script>
+<script src="res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="res/tooltip.js" type="text/javascript"></script>
+</body></html>
